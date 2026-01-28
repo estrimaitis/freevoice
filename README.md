@@ -150,6 +150,7 @@ Uses phonetic matching - just add the correct spelling and it figures out the re
 ```
 freevoice/
 ├── assets/           # Icons and sounds
+├── scripts/          # Development tools
 ├── src/              # Source code modules
 ├── config.json       # User settings
 ├── dictionary.json   # Custom terms
@@ -160,108 +161,13 @@ freevoice/
 
 ## Development
 
-For local development with auto-reload, create a `dev.py` file:
+For development with auto-reload (restarts the app when you change files):
 
-```python
-#!/usr/bin/env python3
-"""
-Development mode - auto-restarts when you change files.
-Press Ctrl+C to stop.
-"""
-
-import subprocess
-import sys
-import time
-from pathlib import Path
-
-try:
-    from watchdog.observers import Observer
-    from watchdog.events import FileSystemEventHandler
-except ImportError:
-    print("Installing watchdog for auto-reload...")
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "watchdog"])
-    from watchdog.observers import Observer
-    from watchdog.events import FileSystemEventHandler
-
-
-class ReloadHandler(FileSystemEventHandler):
-    def __init__(self, callback):
-        self.callback = callback
-        self.last_reload = 0
-        self.debounce = 1.0
-
-    def on_modified(self, event):
-        if event.is_directory or not event.src_path.endswith('.py'):
-            return
-        now = time.time()
-        if now - self.last_reload < self.debounce:
-            return
-        self.last_reload = now
-        print(f"\n>>> File changed: {event.src_path}")
-        self.callback()
-
-
-class DevServer:
-    def __init__(self):
-        self.process = None
-        self.observer = None
-
-    def start_app(self):
-        self.stop_app()
-        print("\n" + "=" * 50)
-        print("Starting freevoice (dev mode)...")
-        print("=" * 50 + "\n")
-        self.process = subprocess.Popen(
-            [sys.executable, "main.py"] + sys.argv[1:],
-            cwd=Path(__file__).parent
-        )
-
-    def stop_app(self):
-        if self.process:
-            print("\nStopping app...")
-            self.process.terminate()
-            try:
-                self.process.wait(timeout=3)
-            except subprocess.TimeoutExpired:
-                self.process.kill()
-            self.process = None
-
-    def run(self):
-        print("\n" + "=" * 50)
-        print("freevoice Development Mode")
-        print("=" * 50)
-        print("Watching for file changes...")
-        print("Press Ctrl+C to stop")
-        print("=" * 50 + "\n")
-
-        handler = ReloadHandler(self.start_app)
-        self.observer = Observer()
-        self.observer.schedule(handler, str(Path(__file__).parent / "src"), recursive=True)
-        self.observer.schedule(handler, str(Path(__file__).parent), recursive=False)
-        self.observer.start()
-        self.start_app()
-
-        try:
-            while True:
-                time.sleep(1)
-                if self.process and self.process.poll() is not None:
-                    print("\nApp crashed! Waiting for file changes to restart...")
-                    self.process = None
-        except KeyboardInterrupt:
-            print("\n\nShutting down dev server...")
-        finally:
-            self.stop_app()
-            self.observer.stop()
-            self.observer.join()
-
-
-if __name__ == "__main__":
-    DevServer().run()
+```bash
+python scripts/dev.py
 ```
 
-Run it with `python dev.py` - the app will auto-restart whenever you modify Python files.
-
-> **Note:** `dev.py` is excluded from the repository via `.gitignore` since it's only needed for local development.
+Press `Ctrl+C` to stop. Requires `watchdog` (installed automatically on first run).
 
 ## Requirements
 
