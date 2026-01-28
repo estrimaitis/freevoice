@@ -26,6 +26,16 @@
   <img src="assets/statistics.png" alt="Usage statistics" width="500">
 </p>
 
+## Why freevoice?
+
+Tired of slow, inaccurate, or subscription-based dictation software? freevoice is a **free, offline voice typing app** for Windows that actually works.
+
+**The problem:** Most speech-to-text tools are either cloud-based (privacy concerns, requires internet, often paid), or the built-in Windows voice typing is limited and inconsistent.
+
+**The solution:** freevoice runs entirely on your machine using OpenAI's Whisper - the same AI that powers professional transcription services. No subscriptions, no internet required, no data leaving your computer.
+
+Whether you're writing emails, coding, taking notes, or just prefer speaking over typing, freevoice gives you fast, accurate voice-to-text in any application. It works everywhere - browsers, Word, Slack, VS Code, even games with chat.
+
 ## Features
 
 - **Push-to-talk** - Hold the hotkey to record, release to transcribe
