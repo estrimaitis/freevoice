@@ -1,12 +1,30 @@
-# freevoice
+<p align="center">
+  <img src="assets/logo.png" alt="freevoice logo" width="128">
+</p>
 
-**Free, Open-Source Voice-to-Text for Windows using OpenAI Whisper**
+<h1 align="center">freevoice</h1>
 
-Press a hotkey, speak, and your words get typed into any text field. Simple as that.
+<p align="center">
+  <strong>Free, Open-Source Voice-to-Text for Windows using OpenAI Whisper</strong>
+</p>
 
-![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)
-![License MIT](https://img.shields.io/badge/license-MIT-green.svg)
-![Platform Windows](https://img.shields.io/badge/platform-Windows-lightgrey.svg)
+<p align="center">
+  Press a hotkey, speak, and your words get typed into any text field. Simple as that.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/python-3.10+-blue.svg" alt="Python 3.10+">
+  <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License MIT">
+  <img src="https://img.shields.io/badge/platform-Windows-lightgrey.svg" alt="Platform Windows">
+</p>
+
+<p align="center">
+  <img src="assets/models.png" alt="Model selection settings" width="500">
+</p>
+
+<p align="center">
+  <img src="assets/statistics.png" alt="Usage statistics" width="500">
+</p>
 
 ## Features
 
@@ -180,6 +198,12 @@ Press `Ctrl+C` to stop. Requires `watchdog` (installed automatically on first ru
 
 - [OpenAI Whisper](https://github.com/openai/whisper) - Speech recognition model
 - [faster-whisper](https://github.com/SYSTRAN/faster-whisper) - Optimized Whisper implementation
+
+## Author
+
+Created by [@estrimaitis](https://github.com/estrimaitis)
+
+- GitHub: [github.com/estrimaitis/freevoice](https://github.com/estrimaitis/freevoice)
 
 ## License
 

@@ -986,6 +986,39 @@ class SettingsWindow:
         )
         link_btn.pack(anchor="w", pady=(5, 0))
         
+        # Author card
+        author_card = ctk.CTkFrame(frame, corner_radius=12)
+        author_card.pack(fill="x", pady=(0, 15))
+        
+        author_inner = ctk.CTkFrame(author_card, fg_color="transparent")
+        author_inner.pack(fill="x", padx=20, pady=15)
+        
+        ctk.CTkLabel(
+            author_inner,
+            text="Created by",
+            font=ctk.CTkFont(size=12),
+            text_color="gray"
+        ).pack(anchor="w")
+        
+        ctk.CTkLabel(
+            author_inner,
+            text="@estrimaitis",
+            font=ctk.CTkFont(size=16, weight="bold")
+        ).pack(anchor="w", pady=(2, 5))
+        
+        author_link = ctk.CTkButton(
+            author_inner,
+            text="github.com/estrimaitis/freevoice",
+            font=ctk.CTkFont(size=13),
+            fg_color="transparent",
+            text_color="#4A9EFF",
+            hover_color="#333333",
+            anchor="w",
+            height=25,
+            command=lambda: self._open_url("https://github.com/estrimaitis/freevoice")
+        )
+        author_link.pack(anchor="w", pady=(5, 0))
+        
         # Open source note
         ctk.CTkLabel(
             frame,
