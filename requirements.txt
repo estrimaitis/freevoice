@@ -1,0 +1,20 @@
+# freevoice - Windows Voice-to-Text using Whisper
+# Core dependencies
+faster-whisper==1.0.3      # Fast Whisper implementation using CTranslate2
+sounddevice==0.4.7         # Audio recording
+numpy==1.26.4              # Audio processing
+scipy==1.12.0              # WAV file handling
+
+# Windows integration
+pynput==1.7.7              # Global hotkeys and keyboard simulation
+pystray==0.19.5            # System tray icon
+Pillow==10.4.0             # Icon handling for system tray
+
+# GUI
+customtkinter==5.2.2       # Modern looking UI
+
+# Development
+watchdog==4.0.0            # Auto-reload in dev mode
+
+# Optional: GPU acceleration (uncomment if you have CUDA)
+# ctranslate2[cuda]==4.0.0
