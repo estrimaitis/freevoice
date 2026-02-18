@@ -1,5 +1,5 @@
 {
-    "model": "large-v3",
+    "model": "base",
     "language": null,
     "sounds_enabled": true,
     "shortcuts": {
